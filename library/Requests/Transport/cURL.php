@@ -419,7 +419,7 @@ class Requests_Transport_cURL implements Requests_Transport {
 				curl_errno($this->handle),
 				curl_error($this->handle)
 			);
-			throw new Requests_Exception($error, 'curlerror', $this->handle);
+			throw new ExtendedRequestsException($error, 'curlerror', $this->handle, 0, debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS));
 		}
 		$this->info = curl_getinfo($this->handle);
 
